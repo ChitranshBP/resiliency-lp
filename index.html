@@ -344,6 +344,8 @@
     function toggleFAQ(btn){const item=btn.closest('.faq-item'),ans=item.querySelector('.faq-answer'),icon=item.querySelector('.faq-icon'),wasHidden=ans.classList.contains('hidden');document.querySelectorAll('.faq-answer').forEach(a=>a.classList.add('hidden'));document.querySelectorAll('.faq-icon').forEach(i=>{i.textContent='+';i.classList.remove('bg-cyan','text-navy','rotate-45')});if(wasHidden){ans.classList.remove('hidden');icon.textContent='×';icon.classList.add('bg-cyan','text-navy')}}
     const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
+    // Redirect to thank you page after form submission
+    window.addEventListener('message',function(e){if(e.data&&e.data.type==='form-submission'&&e.data.formId==='AJMRlGE3YOUFZkMB6keO'){window.location.href='thank-you.html'}});
   </script>
 </body>
 </html>
